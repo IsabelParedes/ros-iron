@@ -1,0 +1,67 @@
+ros_distro: humble
+
+# mapping for package keys
+conda_index:
+  - robostack.yaml
+  - packages-ignore.yaml
+
+build_number: 4
+
+mutex_package: ros2-distro-mutex 0.3 humble
+
+skip_all_deps: false
+
+# If full rebuild, the build number of the existing package has
+# to match the selected build number for skipping
+full_rebuild: false
+
+packages_skip_by_deps:
+  - cartographer
+  - octomap
+  - iceoryx_utils
+  - iceoryx_binding_c
+  - iceoryx_posh
+  - cyclonedds
+  - rttest
+
+packages_remove_from_deps:
+  - cartographer
+  - octomap
+  - rmw_cyclonedds_cpp
+  - tlsf
+  - tlsf_cpp
+  - pendulum_control
+  - warehouse_ros_mongo
+  - pilz-industrial-motion-planner
+
+skip_existing:
+  - https://conda.anaconda.org/robostack-staging/
+
+packages_select_by_deps:
+  # only subset of packages to reduce maintainer load
+  - ros2_control
+  - backward_ros
+  - ros_workspace
+  
+  # - vision_msgs
+  # - ros_environment
+  # - ros_base
+  # - navigation2
+  # - moveit
+  # - desktop_full
+  # - desktop
+  # - cv_bridge
+  # - perception
+
+  # - gazebo_msgs
+  # - gazebo_dev
+  # - gazebo_ros
+  # - gazebo_plugins
+  # - gazebo_ros_control
+  # - gazebo_ros_pkgs
+  
+  # - turtlebot3_simulations
+
+  # - rosbridge_suite
+
+patch_dir: patch
