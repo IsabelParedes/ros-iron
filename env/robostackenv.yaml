@@ -1,21 +1,8 @@
-name: robostackenv
+name: iron-dev
 channels:
-- robostack-iron
-- robostack-staging
 - conda-forge
 dependencies:
 - python=3.11
-- conda-build
-- anaconda-client
-- mamba
-- conda
-- catkin_pkg
-- ruamel.yaml
-- rosdistro
-- empy
-- networkx
-- requests
 - boa
-- pip
 - pip:
   - git+https://github.com/RoboStack/vinca.git@master
