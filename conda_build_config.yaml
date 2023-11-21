@@ -21,7 +21,7 @@ cdt_name:  # [linux]
   - cos7   # [linux]
 
 python:
-  - 3.10.* *_cpython
+  - 3.11.* *_cpython
 python_impl:
   - cpython
 
