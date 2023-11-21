@@ -5,15 +5,15 @@ conda_index:
   - robostack.yaml
   - packages-ignore.yaml
 
-build_number: 4
+build_number: 0
 
-mutex_package: ros2-distro-mutex 0.3 iron
+mutex_package: ros2-distro-mutex 0.4 iron
 
 skip_all_deps: false
 
 # If full rebuild, the build number of the existing package has
 # to match the selected build number for skipping
-full_rebuild: false
+full_rebuild: true
 
 packages_skip_by_deps:
   # - nav2-rotation-shim-controller
@@ -32,7 +32,7 @@ packages_remove_from_deps:
   # - stage
 
 skip_existing:
-  - https://conda.anaconda.org/robostack-staging/
+  # - https://conda.anaconda.org/robostack-staging/
 
 packages_select_by_deps:
   # only subset of packages to reduce maintainer load
