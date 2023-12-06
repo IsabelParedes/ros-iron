@@ -37,8 +37,8 @@ jobs:
             platform: osx-arm64
     steps:
     - uses: actions/checkout@master
-    - name: install mamba
-      uses: mamba-org/provision-with-micromamba@main
+    - name: Install micromamba
+      uses: mamba-org/setup-micromamba@v1
       with:
         environment-file: .github/testpr_environment.yml
 
@@ -62,12 +62,12 @@ jobs:
         conda config --show channels | grep defaults && conda config --remove channels defaults
         conda info
         conda config --show
-        mamba install -y pip rospkg networkx "catkin_pkg>=0.4.16" "ruamel.yaml>=0.16.6" "rosdistro>=0.8.0" "empy>=3.3.4" boa
-    - name: install vinca and boa master
+        micromamba install -y pip rospkg networkx "catkin_pkg>=0.4.16" "ruamel.yaml>=0.16.6" "rosdistro>=0.8.0" "empy>=3.3.4" boa
+    - name: Install vinca and boa main
       shell: bash -l {0}
       run: |
         # use no-deps for now, otherwise problems with ruamel.
-        pip install git+https://github.com/RoboStack/vinca.git --no-deps
+        pip install git+https://github.com/ihuicatl/vinca.git@builds --no-deps
     # For some reason, the Strawberry perl's pkg-config is found
     # instead of the conda's one, so let's delete the /c/Strawberry directory
     - name: Debug pkg-config problem
