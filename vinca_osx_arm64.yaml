@@ -1,4 +1,4 @@
-ros_distro: humble
+ros_distro: iron
 
 # mapping for package keys
 conda_index:
@@ -7,7 +7,7 @@ conda_index:
 
 build_number: 3
 
-mutex_package: ros2-distro-mutex 0.3 humble
+mutex_package: ros2-distro-mutex 0.3 iron
 
 skip_all_deps: false
 
