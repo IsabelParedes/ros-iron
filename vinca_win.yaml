@@ -5,9 +5,9 @@ conda_index:
   - robostack.yaml
   - packages-ignore.yaml
 
-build_number: 4
+build_number: 0
 
-mutex_package: ros2-distro-mutex 0.3 iron
+mutex_package: ros2-distro-mutex 0.4 iron
 
 skip_all_deps: false
 
