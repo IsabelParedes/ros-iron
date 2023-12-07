@@ -42,14 +42,15 @@ packages_select_by_deps:
   - ament_cmake
   - ros_base
   - desktop
-  - navigation2
-  - moveit
-  - graph_msgs
-  - nav2_bringup
-  - webots_ros2
-  - turtlebot3
-  - desktop_full
-  - apriltag
+
+  # - navigation2
+  # - moveit
+  # - graph_msgs
+  # - nav2_bringup
+  # - webots_ros2
+  # - turtlebot3
+  # - desktop_full
+  # - apriltag
 
   # - turtlebot3_fake_node
   # - ur
@@ -128,7 +129,7 @@ packages_select_by_deps:
   # - geographic_info
   # - geodesy
 
-  - rosbridge_suite
+  # - rosbridge_suite
 
 
   # ----- end of package support -----

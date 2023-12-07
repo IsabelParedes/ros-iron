@@ -38,10 +38,11 @@ skip_existing:
   - https://conda.anaconda.org/robostack-staging/
 
 packages_select_by_deps:
-  # - ros_workspace
-  # - ros_environment
-  # - ros_base
-  # - desktop
+  - ros_workspace
+  - ros_environment
+  - ros_base
+  - desktop
+
   # - moveit
   # - moveit_servo
   # - desktop_full
@@ -60,12 +61,12 @@ packages_select_by_deps:
   #- bicycle_steering_controller
   #- diff_drive_controller
   #- effort_controllers
-  - force_torque_sensor_broadcaster
-  - imu_sensor_broadcaster
-  - position_controllers
+  # - force_torque_sensor_broadcaster
+  # - imu_sensor_broadcaster
+  # - position_controllers
 
   # package request
-  - ros2_control
+  # - ros2_control
 
   # - joint-state-broadcaster
   # - joint-state-publisher

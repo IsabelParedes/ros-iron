@@ -40,41 +40,42 @@ packages_select_by_deps:
   - ros_workspace
   - ros_environment
   - ros_base
-  - demo_nodes_py
-  - demo_nodes_cpp
   - desktop
-  - moveit
-  - graph_msgs
-  - desktop_full
-  - navigation2
-  - rosbridge_suite
-  - vision_msgs
-  - rosbag2_storage_mcap
-  - foxglove_bridge
-  - turtlebot3
 
-  - joint-state-broadcaster
-  - joint-state-publisher
-  - joint-trajectory-controller
-  - xacro
-  - robot-localization
-  - vision-opencv
+  # - demo_nodes_py
+  # - demo_nodes_cpp
+  # - moveit
+  # - graph_msgs
+  # - desktop_full
+  # - navigation2
+  # - rosbridge_suite
+  # - vision_msgs
+  # - rosbag2_storage_mcap
+  # - foxglove_bridge
+  # - turtlebot3
+
+  # - joint-state-broadcaster
+  # - joint-state-publisher
+  # - joint-trajectory-controller
+  # - xacro
+  # - robot-localization
+  # - vision-opencv
   # - velodyne
   # - sbg_driver
   # - ackermann-msgs
 
-  - gazebo_msgs
-  - gazebo_dev
-  - gazebo_ros
-  - gazebo_plugins
-  - gazebo_ros_control
-  - gazebo_ros_pkgs
+  # - gazebo_msgs
+  # - gazebo_dev
+  # - gazebo_ros
+  # - gazebo_plugins
+  # - gazebo_ros_control
+  # - gazebo_ros_pkgs
 
-  - turtlebot3_gazebo
+  # - turtlebot3_gazebo
 
-  - plotjuggler-ros
-  - plotjuggler
+  # - plotjuggler-ros
+  # - plotjuggler
 
   # package request
-  - ros2_control
+  # - ros2_control
 patch_dir: patch
