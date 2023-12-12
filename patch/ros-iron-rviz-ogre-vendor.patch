@@ -1,0 +1,42 @@
+diff --git a/rviz_ogre_vendor/CMakeLists.txt b/rviz_ogre_vendor/CMakeLists.txt
+index 3a927e45..448e41da 100644
+--- a/rviz_ogre_vendor/CMakeLists.txt
++++ b/rviz_ogre_vendor/CMakeLists.txt
+@@ -11,13 +11,10 @@ if(POLICY CMP0135)
+   cmake_policy(SET CMP0135 NEW)
+ endif()
+ 
+-if(WIN32)
+-  set(BUILDING_FREETYPE_LOCALLY ON)
+-  set(BUILDING_ZLIB_LOCALLY ON)
+-else()
+-  set(BUILDING_FREETYPE_LOCALLY OFF)
+-  set(BUILDING_ZLIB_LOCALLY OFF)
+-endif()
++set(BUILDING_FREETYPE_LOCALLY OFF)
++set(BUILDING_ZLIB_LOCALLY OFF)
++
++set(OGRE_BUILD_RENDERSYSTEM_GLES2 FALSE CACHE BOOL "" FORCE)
+ 
+ if(WIN32 AND NOT ${CMAKE_VERBOSE_MAKEFILE})
+   set(should_log ON)  # prevent warnings in Windows CI
+@@ -141,8 +138,8 @@ macro(build_ogre)
+   list(APPEND extra_cmake_args "-DCMAKE_C_FLAGS=${OGRE_C_FLAGS}")
+   list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${OGRE_CXX_FLAGS}")
+ 
+-  # Uncomment this line to enable the GL3PLUS render engine
+-  # list(APPEND extra_cmake_args "-DOGRE_BUILD_RENDERSYSTEM_GL3PLUS:BOOL=TRUE")
++  # Disable the GL3PLUS render engine
++  list(APPEND extra_cmake_args "-DOGRE_BUILD_RENDERSYSTEM_GL3PLUS:BOOL=FALSE")
+ 
+   # These next lines can be used to disable some of the components or plugins for OGRE
+   list(APPEND extra_cmake_args "-DOGRE_CONFIG_ENABLE_ZIP:BOOL=ON")
+@@ -191,6 +188,8 @@ macro(build_ogre)
+       -DOGRE_BUILD_COMPONENT_CSHARP:BOOL=FALSE
+       -DOGRE_BUILD_COMPONENT_BITES:BOOL=FALSE
+       -DOGRE_BUILD_PLUGIN_DOT_SCENE:BOOL=FALSE
++      -DOGRE_BUILD_PLUGIN_EXRCODEC:BOOL=FALSE
++      -DOGRE_ENABLE_PRECOMPILED_HEADERS=0
+       -DOGRE_BUILD_TOOLS:BOOL=FALSE
+       ${extra_cmake_args}
+       -Wno-dev
