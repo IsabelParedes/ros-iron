@@ -36,9 +36,9 @@ jobs:
           - os: windows-2019
             platform: osx-arm64
     steps:
-    - uses: actions/checkout@master
-    - name: install mamba
-      uses: mamba-org/provision-with-micromamba@main
+    - uses: actions/checkout@v4
+    - name: Install micromamba
+      uses: mamba-org/setup-micromamba@v1
       with:
         environment-file: .github/testpr_environment.yml
 
@@ -62,12 +62,12 @@ jobs:
         conda config --show channels | grep defaults && conda config --remove channels defaults
         conda info
         conda config --show
-        mamba install -y pip rospkg networkx "catkin_pkg>=0.4.16" "ruamel.yaml>=0.16.6" "rosdistro>=0.8.0" "empy>=3.3.4" boa
-    - name: install vinca and boa master
+        micromamba install -y pip rospkg networkx "catkin_pkg>=0.4.16" "ruamel.yaml>=0.16.6" "rosdistro>=0.8.0" "empy>=3.3.4" boa
+    - name: Install vinca and boa main
       shell: bash -l {0}
       run: |
         # use no-deps for now, otherwise problems with ruamel.
-        pip install git+https://github.com/RoboStack/vinca.git --no-deps
+        pip install git+https://github.com/ihuicatl/vinca.git@builds --no-deps
     # For some reason, the Strawberry perl's pkg-config is found
     # instead of the conda's one, so let's delete the /c/Strawberry directory
     - name: Debug pkg-config problem
@@ -84,15 +84,15 @@ jobs:
         # continue on error
         set +e
         git diff --exit-code --name-only origin/main -- vinca_linux_64.yaml > /dev/null
-        echo "::set-output name=LINUX_YAML_CHANGED::${?}"
+        echo "LINUX_YAML_CHANGED=${?}" >> $GITHUB_OUTPUT
         git diff --exit-code --name-only origin/main -- vinca_linux_aarch64.yaml > /dev/null
-        echo "::set-output name=LINUX_AARCH_YAML_CHANGED::${?}"
+        echo "LINUX_AARCH_YAML_CHANGED=${?}" >> $GITHUB_OUTPUT
         git diff --exit-code --name-only origin/main -- vinca_osx.yaml > /dev/null
-        echo "::set-output name=OSX_YAML_CHANGED::${?}"
+        echo "OSX_YAML_CHANGED=${?}" >> $GITHUB_OUTPUT
         git diff --exit-code --name-only origin/main -- vinca_osx_arm64.yaml > /dev/null
-        echo "::set-output name=OSX_ARM_YAML_CHANGED::${?}"
+        echo "OSX_ARM_YAML_CHANGED=${?}" >> $GITHUB_OUTPUT
         git diff --exit-code --name-only origin/main -- vinca_win.yaml > /dev/null
-        echo "::set-output name=WIN_YAML_CHANGED::${?}"
+        echo "WIN_YAML_CHANGED=${?}" >> $GITHUB_OUTPUT
     - name: Generate recipes for Linux
       shell: bash -l {0}
       if: steps.filecheck.outputs.LINUX_YAML_CHANGED == 1 && matrix.os == 'ubuntu-latest' && matrix.platform == 'linux-64'
@@ -145,7 +145,7 @@ jobs:
         # continue on error
         set +e
         grep -q "outputs: \[\]" recipe.yaml > /dev/null
-        echo "::set-output name=RECIPE_CREATED::${?}"
+        echo "RECIPE_CREATED=${?}" >> $GITHUB_OUTPUT
     - name: Build recipes for Linux
       shell: bash -l {0}
       run: |

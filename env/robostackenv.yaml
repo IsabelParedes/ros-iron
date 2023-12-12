@@ -5,4 +5,4 @@ dependencies:
 - python=3.11
 - boa
 - pip:
-  - git+https://github.com/RoboStack/vinca.git@master
+  - git+https://github.com/ihuicatl/vinca.git@builds

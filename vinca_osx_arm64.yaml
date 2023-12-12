@@ -5,15 +5,15 @@ conda_index:
   - robostack.yaml
   - packages-ignore.yaml
 
-build_number: 3
+build_number: 0
 
-mutex_package: ros2-distro-mutex 0.3 iron
+mutex_package: ros2-distro-mutex 0.4 iron
 
 skip_all_deps: false
 
 # If full rebuild, the build number of the existing package has
 # to match the selected build number for skipping
-full_rebuild: true
+full_rebuild: false
 
 # build_in_own_azure_stage:
 # - ros-galactic-rviz-rendering
@@ -40,41 +40,42 @@ packages_select_by_deps:
   - ros_workspace
   - ros_environment
   - ros_base
-  - demo_nodes_py
-  - demo_nodes_cpp
   - desktop
-  - moveit
-  - graph_msgs
-  - desktop_full
-  - navigation2
-  - rosbridge_suite
-  - vision_msgs
-  - rosbag2_storage_mcap
-  - foxglove_bridge
-  - turtlebot3
 
-  - joint-state-broadcaster
-  - joint-state-publisher
-  - joint-trajectory-controller
-  - xacro
-  - robot-localization
-  - vision-opencv
+  # - demo_nodes_py
+  # - demo_nodes_cpp
+  # - moveit
+  # - graph_msgs
+  # - desktop_full
+  # - navigation2
+  # - rosbridge_suite
+  # - vision_msgs
+  # - rosbag2_storage_mcap
+  # - foxglove_bridge
+  # - turtlebot3
+
+  # - joint-state-broadcaster
+  # - joint-state-publisher
+  # - joint-trajectory-controller
+  # - xacro
+  # - robot-localization
+  # - vision-opencv
   # - velodyne
   # - sbg_driver
   # - ackermann-msgs
 
-  - gazebo_msgs
-  - gazebo_dev
-  - gazebo_ros
-  - gazebo_plugins
-  - gazebo_ros_control
-  - gazebo_ros_pkgs
+  # - gazebo_msgs
+  # - gazebo_dev
+  # - gazebo_ros
+  # - gazebo_plugins
+  # - gazebo_ros_control
+  # - gazebo_ros_pkgs
 
-  - turtlebot3_gazebo
+  # - turtlebot3_gazebo
 
-  - plotjuggler-ros
-  - plotjuggler
+  # - plotjuggler-ros
+  # - plotjuggler
 
   # package request
-  - ros2_control
+  # - ros2_control
 patch_dir: patch
